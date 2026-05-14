@@ -2,7 +2,7 @@
 
 ## Objective
 
-All cloud resources created for CloudBees PS onboarding labs must include ownership, user, and environment labels/tags so resources can be identified, governed, cost-tracked, and cleaned up safely.
+All cloud resources created for CloudBees PS onboarding labs must include ownership, user, and environment labels/tags so resources can be identified, governed, cost-tracked, audited, and cleaned up safely.
 
 ## Required Labels / Tags
 
