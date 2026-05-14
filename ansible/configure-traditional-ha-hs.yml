@@ -1,0 +1,11 @@
+---
+- name: Configure Traditional HA/HS placeholder
+  hosts: traditional
+  become: true
+  tasks:
+    - name: Create HA/HS plan
+      ansible.builtin.copy:
+        dest: /opt/cloudbees-traditional-ha-hs-plan.txt
+        content: |
+          Configure Traditional HA/HS according to licensed CloudBees topology.
+          Capture failover/restart evidence and logs.

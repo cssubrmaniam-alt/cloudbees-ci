@@ -1,0 +1,25 @@
+name: CloudBees PS Onboarding Automation
+on:
+  workflow_dispatch:
+jobs:
+  validate-runbook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Init sample config
+        run: |
+          cp .env.example .env
+          cp config/onboarding.example.json config/onboarding.json
+      - name: Phase 1 validation and runbook
+        run: |
+          bash scripts/init_evidence_tree.sh
+          bash scripts/validate_prereqs.sh || true
+          python3 runbook-generator/generate_phase_runbook.py
+          python3 runbook-generator/generate_master_runbook.py
+      - name: Upload evidence and runbooks
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudbees-ps-runbooks
+          path: |
+            evidence/**
+            generated-runbooks/**

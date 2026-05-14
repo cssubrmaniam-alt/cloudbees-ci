@@ -1,0 +1,12 @@
+repositories:
+  - name: {{ requiredEnv "CLOUDBEES_HELM_REPO_NAME" }}
+    url: {{ requiredEnv "CLOUDBEES_HELM_REPO_URL" }}
+
+releases:
+  - name: {{ requiredEnv "CLOUDBEES_HELM_RELEASE" }}
+    namespace: {{ requiredEnv "CBCI_NAMESPACE" }}
+    createNamespace: true
+    chart: {{ requiredEnv "CLOUDBEES_HELM_CHART" }}
+    {{ if env "CLOUDBEES_VERSION" }}version: {{ env "CLOUDBEES_VERSION" }}{{ end }}
+    values:
+      - values/cloudbees-modern-values.yaml

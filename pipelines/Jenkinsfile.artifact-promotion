@@ -1,0 +1,18 @@
+@Library('cb-shared-library') _
+pipeline {
+  agent any
+  options { timestamps() }
+  parameters { string(name: 'ARTIFACT_VERSION', defaultValue: '1.0.0') }
+  stages {
+    stage('Create Artifact Metadata') {
+      steps {
+        sh 'mkdir -p dist && echo "{\\"app\\":\\"sample-app\\",\\"version\\":\\"${ARTIFACT_VERSION}\\",\\"build\\":\\"${BUILD_NUMBER}\\"}" > dist/artifact-metadata.json'
+        archiveArtifacts artifacts: 'dist/artifact-metadata.json', fingerprint: true
+      }
+    }
+    stage('Promote DEV') { steps { cbPromote from: 'build', to: 'dev', version: params.ARTIFACT_VERSION } }
+    stage('Promote TEST') { steps { cbPromote from: 'dev', to: 'test', version: params.ARTIFACT_VERSION } }
+    stage('Approval STAGE') { steps { input message: 'Approve promotion to STAGE?' } }
+    stage('Promote STAGE') { steps { cbPromote from: 'test', to: 'stage', version: params.ARTIFACT_VERSION } }
+  }
+}

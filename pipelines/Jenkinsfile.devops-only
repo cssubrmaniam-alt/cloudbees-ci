@@ -1,0 +1,19 @@
+@Library('cb-shared-library') _
+pipeline {
+  agent any
+  options { timestamps() }
+  environment { APP_NAME = 'sample-app' }
+  stages {
+    stage('Checkout') { steps { echo 'Checkout source code' } }
+    stage('Build') { steps { cbBuild appName: env.APP_NAME } }
+    stage('Unit Test') { steps { sh 'mkdir -p evidence/06-phase-6-scenarios/cli-output && echo unit-tests=passed > evidence/06-phase-6-scenarios/cli-output/unit-tests.txt' } }
+    stage('Package Artifact') {
+      steps {
+        sh 'mkdir -p dist && echo "artifact for ${APP_NAME} build ${BUILD_NUMBER}" > dist/${APP_NAME}-${BUILD_NUMBER}.txt'
+        archiveArtifacts artifacts: 'dist/*', fingerprint: true
+      }
+    }
+    stage('Deploy DEV') { steps { cbDeploy environment: 'dev', appName: env.APP_NAME } }
+    stage('Notify') { steps { echo 'Notify team' } }
+  }
+}

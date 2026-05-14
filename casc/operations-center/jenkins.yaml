@@ -1,0 +1,4 @@
+jenkins:
+  systemMessage: "CloudBees CI PS Onboarding Operations Center - automated by CasC"
+  numExecutors: 0
+  mode: NORMAL

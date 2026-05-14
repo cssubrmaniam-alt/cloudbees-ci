@@ -1,0 +1,3 @@
+# RBAC starter for team-a.
+# Adapt to your installed CloudBees RBAC plugin/version.
+# Roles: Admin, Operator, Viewer, Developer, Job Admin, Auditor, Release Manager.

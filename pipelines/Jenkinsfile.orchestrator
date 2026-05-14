@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  options { timestamps() }
+  stages {
+    stage('Phase 1 Validate') { steps { sh 'bash scripts/validate_prereqs.sh || true' } }
+    stage('Evidence') { steps { sh 'bash evidence-scripts/capture_all.sh || true' } }
+    stage('Runbook') { steps { sh 'python3 runbook-generator/generate_phase_runbook.py && python3 runbook-generator/generate_master_runbook.py' } }
+  }
+  post { always { archiveArtifacts artifacts: 'evidence/**/*, generated-runbooks/**/*', allowEmptyArchive: true } }
+}

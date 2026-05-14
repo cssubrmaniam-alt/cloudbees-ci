@@ -1,0 +1,18 @@
+# Starter CloudBees CI Modern values.
+# Confirm chart-version-specific keys before production use.
+
+OperationsCenter:
+  HostName: {{ requiredEnv "OC_HOSTNAME" | quote }}
+  Ingress:
+    Enabled: true
+    Host: {{ requiredEnv "OC_HOSTNAME" | quote }}
+    tls:
+      Enable: true
+  JavaOpts: >-
+    -Djenkins.install.runSetupWizard=false
+
+Persistence:
+  Enabled: true
+
+Hibernation:
+  Enabled: true

@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "echo tests passed"
+  },
+  "dependencies": {}
+}

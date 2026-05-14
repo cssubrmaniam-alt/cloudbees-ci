@@ -1,0 +1,41 @@
+---
+- name: Install CloudBees CI Traditional starter on VM
+  hosts: traditional
+  become: true
+  vars:
+    cloudbees_home: /var/lib/cloudbees-core-cm
+    java_package: openjdk-17-jdk
+  tasks:
+    - name: Install base packages
+      ansible.builtin.apt:
+        update_cache: true
+        name:
+          - "{{ java_package }}"
+          - curl
+          - wget
+          - git
+          - unzip
+          - fontconfig
+        state: present
+
+    - name: Create cloudbees user
+      ansible.builtin.user:
+        name: cloudbees
+        shell: /bin/bash
+        create_home: true
+
+    - name: Create CloudBees home
+      ansible.builtin.file:
+        path: "{{ cloudbees_home }}"
+        state: directory
+        owner: cloudbees
+        group: cloudbees
+        mode: "0755"
+
+    - name: Create Traditional install notes
+      ansible.builtin.copy:
+        dest: /opt/cloudbees-traditional-install-notes.txt
+        content: |
+          Automation hook for CloudBees CI Traditional.
+          Add licensed package URL/repo and OC service configuration here.
+          Evidence: java version, service status, OC URL, controller and agent screenshots.

@@ -1,0 +1,5 @@
+type: plugin-catalog
+version: "1"
+name: ps-onboarding-plugin-catalog
+displayName: PS Onboarding Plugin Catalog
+configurations: []

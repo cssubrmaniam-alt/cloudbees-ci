@@ -1,0 +1,11 @@
+apiVersion: "1"
+id: "team-b-controller"
+description: "team-b Managed Controller CasC bundle"
+version: "1"
+jcasc:
+  - "jenkins.yaml"
+  - "rbac.yaml"
+plugins:
+  - "plugins.yaml"
+items:
+  - "items.yaml"

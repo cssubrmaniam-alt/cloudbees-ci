@@ -1,0 +1,9 @@
+pipeline {
+  agent any
+  options { timestamps() }
+  stages {
+    stage('Validate CasC Files') { steps { sh 'test -f casc/operations-center/bundle.yaml && find casc -maxdepth 4 -type f | sort' } }
+    stage('Package CasC') { steps { sh 'bash scripts/package_casc.sh'; archiveArtifacts artifacts: 'dist/casc-bundles/*.tgz', fingerprint: true } }
+    stage('Rollback Instruction') { steps { echo 'Rollback by reverting Git commit or re-attaching previous bundle version.' } }
+  }
+}

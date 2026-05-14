@@ -1,0 +1,4 @@
+jenkins:
+  systemMessage: "CloudBees CI PS Onboarding - team-b controller"
+  numExecutors: 0
+  mode: NORMAL

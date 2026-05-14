@@ -1,0 +1,20 @@
+---
+- name: Configure Linux agent starter
+  hosts: traditional
+  become: true
+  tasks:
+    - name: Install agent prerequisites
+      ansible.builtin.apt:
+        update_cache: true
+        name:
+          - openjdk-17-jdk
+          - git
+          - docker.io
+        state: present
+    - name: Create workspace
+      ansible.builtin.file:
+        path: /var/lib/cloudbees-agent
+        state: directory
+        owner: cloudbees
+        group: cloudbees
+        mode: "0755"

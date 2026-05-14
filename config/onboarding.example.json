@@ -1,0 +1,50 @@
+{
+  "consultant": {
+    "name": "Saravanan Subramaniam",
+    "user": "ssubramaniam",
+    "owner": "professional-services",
+    "environment": "development"
+  },
+  "cloud": {
+    "gcp_project_id": "your-gcp-project-id",
+    "gcp_region": "us-central1",
+    "gcp_zone": "us-central1-a",
+    "gke_cluster_name": "cbci-modern-dev",
+    "gke_node_count": 3,
+    "gke_machine_type": "e2-standard-4",
+    "traditional_vm_name": "cbci-traditional-dev",
+    "traditional_machine_type": "e2-standard-4",
+    "traditional_disk_gb": 100,
+    "aws_region": "us-east-1",
+    "aws_profile": "your-aws-sso-profile"
+  },
+  "dns": {
+    "user_domain": "ssubramaniam.ps.beescloud.com",
+    "aws_domain": "aws.ssubramaniam.ps.beescloud.com",
+    "oc_hostname": "cjoc.aws.ssubramaniam.ps.beescloud.com",
+    "wildcard_cert_domain": "*.aws.ssubramaniam.ps.beescloud.com",
+    "create_route53_zone": true
+  },
+  "cloudbees": {
+    "namespace": "cloudbees-core",
+    "helm_repo_name": "cloudbees",
+    "helm_repo_url": "https://public-charts.artifacts.cloudbees.com/repository/public/",
+    "helm_chart": "cloudbees/cloudbees-core",
+    "helm_release": "cloudbees-core",
+    "version": "",
+    "url": "https://cjoc.aws.ssubramaniam.ps.beescloud.com",
+    "admin_user": "admin",
+    "controllers": [
+      "team-a",
+      "team-b"
+    ]
+  },
+  "features": {
+    "traditional": true,
+    "modern": true,
+    "casc": true,
+    "migration": true,
+    "phase6": true,
+    "screenshots": true
+  }
+}

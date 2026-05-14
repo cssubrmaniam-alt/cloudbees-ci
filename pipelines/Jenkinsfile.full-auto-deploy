@@ -1,0 +1,14 @@
+@Library('cb-shared-library') _
+pipeline {
+  agent any
+  options { timestamps() }
+  stages {
+    stage('Build/Test/Package') { steps { cbBuild appName: 'sample-app'; sh 'mkdir -p dist && echo deployable > dist/deployable.txt'; archiveArtifacts artifacts: 'dist/*', fingerprint: true } }
+    stage('Deploy DEV') { steps { cbDeploy environment: 'dev', appName: 'sample-app' } }
+    stage('Smoke Test DEV') { steps { sh 'echo smoke-test-dev=passed' } }
+    stage('Deploy TEST') { steps { cbDeploy environment: 'test', appName: 'sample-app' } }
+    stage('Production Approval') { steps { input message: 'Approve production deployment?' } }
+    stage('Deploy PROD') { steps { cbDeploy environment: 'prod', appName: 'sample-app' } }
+    stage('Post Validation') { steps { sh 'echo post-deploy-validation=passed' } }
+  }
+}

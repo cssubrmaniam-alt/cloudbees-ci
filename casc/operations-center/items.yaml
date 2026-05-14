@@ -1,0 +1,7 @@
+removeStrategy:
+  items: "none"
+items:
+  - kind: folder
+    name: "ps-onboarding"
+    displayName: "PS Onboarding"
+    description: "Generated folder for CloudBees PS onboarding automation"

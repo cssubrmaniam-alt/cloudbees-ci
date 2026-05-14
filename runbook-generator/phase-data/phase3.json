@@ -1,0 +1,5 @@
+{
+  "phase_id": "Phase 3",
+  "title": "Modern on GKE/Kubernetes",
+  "objective": "Provision GKE and install/validate CloudBees CI Modern."
+}

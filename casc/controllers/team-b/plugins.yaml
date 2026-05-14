@@ -1,0 +1,9 @@
+plugins:
+  - id: "workflow-aggregator"
+  - id: "pipeline-utility-steps"
+  - id: "git"
+  - id: "github-branch-source"
+  - id: "job-dsl"
+  - id: "cloudbees-folder"
+  - id: "matrix-auth"
+  - id: "credentials-binding"
