@@ -347,3 +347,19 @@ Step 2 — AWS Route53 hosted zone: Blocked / AWS SSO ticket created
 Step 3 — GCP NS delegation to AWS Route53: Blocked until Route53 zone exists
 Step 4 — ACM wildcard certificate: Blocked until AWS SSO and Route53 access are available
 ~~~
+
+
+## Latest Phase 2 DNS Validation
+
+~~~text
+Static IP: Completed
+Static IP name: cbci-traditional-dev-public-ip
+Static IP value: 34.75.138.203
+Static IP status: IN_USE
+
+GCP child zone A record: Completed
+traditional.ssubramaniam.ps.beescloud.com. -> 34.75.138.203
+
+Public DNS resolution: Pending ps-dev parent NS delegation
+AWS Route53 / ACM: Blocked pending AWS SSO access fix
+~~~
