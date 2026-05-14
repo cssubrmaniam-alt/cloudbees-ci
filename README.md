@@ -278,3 +278,10 @@ The Phase 2 lab project is:
 
 ```text
 cloudbees-ci-ps-lab
+
+### CloudBees PS Labels and Tags Standard
+
+Cloud resource labels/tags for PS onboarding labs are documented here:
+
+```text
+docs/runbooks/cloudbees-ps-labels-and-tags-standard.md
