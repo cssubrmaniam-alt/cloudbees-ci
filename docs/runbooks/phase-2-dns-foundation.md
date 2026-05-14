@@ -343,7 +343,7 @@ evidence/02-phase-2-traditional-ci/cli-output/
 ~~~text
 Step 1 — GCP child zone: Completed
 Step 1 — ps-dev parent NS delegation: Ticket created / pending Ops
-Step 2 — AWS Route53 hosted zone: Pending
-Step 3 — GCP NS delegation to AWS Route53: Pending
-Step 4 — ACM wildcard certificate: Pending
+Step 2 — AWS Route53 hosted zone: Blocked / AWS SSO ticket created
+Step 3 — GCP NS delegation to AWS Route53: Blocked until Route53 zone exists
+Step 4 — ACM wildcard certificate: Blocked until AWS SSO and Route53 access are available
 ~~~
