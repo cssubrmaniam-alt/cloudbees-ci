@@ -80,3 +80,8 @@ infra-destroy:
 	  cd ../gcp-gke && terraform destroy -auto-approve -var-file=../../generated-config/gcp-gke.tfvars; \
 	  cd ../aws-dns-acm && terraform destroy -auto-approve -var-file=../../generated-config/aws-dns-acm.tfvars; \
 	else echo "Cancelled."; fi
+
+bootstrap-wsl:
+	bash scripts/bootstrap_wsl_ubuntu.sh
+
+phase1-auto: bootstrap-wsl phase1
