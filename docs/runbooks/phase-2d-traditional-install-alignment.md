@@ -2,16 +2,13 @@
 
 ## Objective
 
-Align the Phase 2D lab installation with the official CloudBees CI Traditional Platforms installation guide.
+Align Phase 2D with the CloudBees CI on traditional platforms installation flow.
 
-## Official Install Flow
-
-The Traditional Platforms installation guide follows this sequence:
+## PS / Official Install Flow
 
 ```text
-1. System requirements
-2. Verify Docker images
-3. Install operations center
-4. Install client controllers
-5. Verify build components
-6. Verify WAR files
+1. Verify CloudBees CI Docker image signatures
+2. Install Operations Center
+3. Install client controllers
+4. Verify build components
+5. Verify WAR files, if using WAR-based installation
