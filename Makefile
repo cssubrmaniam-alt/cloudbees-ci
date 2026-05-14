@@ -85,3 +85,15 @@ bootstrap-wsl:
 	bash scripts/bootstrap_wsl_ubuntu.sh
 
 phase1-auto: bootstrap-wsl phase1
+
+phase2-plan: init
+	python3 scripts/render_config.py
+	cd terraform/gcp-vm-traditional && terraform init && terraform validate && terraform plan -var-file=../../generated-config/gcp-vm-traditional.tfvars
+
+phase2-apply: init
+	python3 scripts/render_config.py
+	cd terraform/gcp-vm-traditional && terraform init && terraform validate && terraform apply -var-file=../../generated-config/gcp-vm-traditional.tfvars
+
+phase2-traditional: init
+	python3 scripts/render_config.py
+	ansible-playbook -i generated-config/ansible-inventory.ini ansible/install-cloudbees-traditional.yml
