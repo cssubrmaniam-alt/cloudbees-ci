@@ -343,8 +343,8 @@ evidence/02-phase-2-traditional-ci/cli-output/
 ~~~text
 Step 1 — GCP child zone: Completed
 Step 1 — ps-dev parent NS delegation: Completed
-Step 2 — AWS Route53 hosted zone: Blocked / AWS SSO ticket created
-Step 3 — GCP NS delegation to AWS Route53: Blocked until Route53 zone exists
+Step 2 — AWS Route53 hosted zone: Completed
+Step 3 — GCP NS delegation to AWS Route53: Completed
 Step 4 — ACM wildcard certificate: Blocked until AWS SSO and Route53 access are available
 ~~~
 
@@ -361,7 +361,7 @@ GCP child zone A record: Completed
 traditional.ssubramaniam.ps.beescloud.com. -> 34.75.138.203
 
 Public DNS resolution: Completed
-AWS Route53 / ACM: Blocked pending AWS SSO access fix
+AWS Route53: Completed; ACM: Pending
 ~~~
 
 
@@ -379,4 +379,20 @@ Nameservers:
 
 Traditional VM DNS:
 traditional.ssubramaniam.ps.beescloud.com -> 34.75.138.203
+~~~
+
+
+## AWS Route53 Delegation Completion
+
+~~~text
+Status: Completed
+AWS delegated zone: aws.ssubramaniam.ps.beescloud.com
+Route53 nameservers:
+  ns-1731.awsdns-24.co.uk.
+  ns-919.awsdns-50.net.
+  ns-1358.awsdns-41.org.
+  ns-9.awsdns-01.com.
+
+GCP child zone delegation:
+aws.ssubramaniam.ps.beescloud.com. NS -> Route53 nameservers
 ~~~
