@@ -345,7 +345,7 @@ Step 1 — GCP child zone: Completed
 Step 1 — ps-dev parent NS delegation: Completed
 Step 2 — AWS Route53 hosted zone: Completed
 Step 3 — GCP NS delegation to AWS Route53: Completed
-Step 4 — ACM wildcard certificate: Blocked until AWS SSO and Route53 access are available
+Step 4 — ACM wildcard certificate: Completed
 ~~~
 
 
@@ -361,7 +361,7 @@ GCP child zone A record: Completed
 traditional.ssubramaniam.ps.beescloud.com. -> 34.75.138.203
 
 Public DNS resolution: Completed
-AWS Route53: Completed; ACM: Pending
+AWS Route53: Completed; ACM: Completed
 ~~~
 
 
@@ -395,4 +395,18 @@ Route53 nameservers:
 
 GCP child zone delegation:
 aws.ssubramaniam.ps.beescloud.com. NS -> Route53 nameservers
+~~~
+
+
+## ACM Wildcard Certificate Completion
+
+~~~text
+Status: Completed
+Region: us-east-1
+Certificate domain: *.aws.ssubramaniam.ps.beescloud.com
+Validation method: DNS
+Certificate status: ISSUED
+Tags:
+  cb-owner = professional-services
+  cb-user  = ssubramaniam
 ~~~
