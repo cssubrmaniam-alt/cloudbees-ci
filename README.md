@@ -285,3 +285,10 @@ Cloud resource labels/tags for PS onboarding labs are documented here:
 
 ```text
 docs/runbooks/cloudbees-ps-labels-and-tags-standard.md
+
+### Phase 2D Traditional Install Alignment
+
+The CloudBees CI Traditional installation alignment runbook is documented here:
+
+```text
+docs/runbooks/phase-2d-traditional-install-alignment.md
