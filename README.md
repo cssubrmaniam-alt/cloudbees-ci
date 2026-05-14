@@ -249,3 +249,32 @@ Phase 1 is complete when:
 - Use AWS SSO profiles or federated cloud credentials.
 - Terraform destroy is intentionally separate and asks for confirmation.
 - Evidence scripts are read-only wherever possible.
+
+## Phase 2 — CloudBees CI Traditional VM, DNS Foundation, and Base Install
+
+Phase 2 provisions the CloudBees CI Traditional lab VM, prepares the base operating system, captures evidence, and tracks DNS delegation required for a CloudBees-controlled service URL.
+
+### Phase 2 current status
+
+| Area | Status |
+|---|---|
+| GCP project | Completed |
+| Region policy alignment | Completed |
+| Traditional VM infrastructure | Completed |
+| Firewall restriction | Completed |
+| Ansible base install | Completed |
+| VM base validation | Completed |
+| DNS child zone | Completed |
+| ps-dev parent NS delegation | Ticket created / pending Ops |
+| CloudBees CI Traditional install source | Pending |
+| Operations Center setup | Pending |
+| Controller attach | Pending |
+| Linux agent setup | Pending |
+| Quickstart demo | Pending |
+
+### GCP project
+
+The Phase 2 lab project is:
+
+```text
+cloudbees-ci-ps-lab
