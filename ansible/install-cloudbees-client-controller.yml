@@ -1,0 +1,56 @@
+---
+- name: Install CloudBees CI Client Controller on Traditional VM
+  hosts: traditional
+  become: true
+
+  tasks:
+    - name: Install prerequisite packages
+      ansible.builtin.apt:
+        update_cache: true
+        name:
+          - wget
+          - ca-certificates
+          - gnupg
+          - apt-transport-https
+        state: present
+
+    - name: Add CloudBees apt repository key
+      ansible.builtin.get_url:
+        url: https://downloads.cloudbees.com/cloudbees-core/traditional/operations-center/rolling/debian/cloudbees.com.key
+        dest: /etc/apt/trusted.gpg.d/cloudbees.com.asc
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Add CloudBees Client Controller apt repository
+      ansible.builtin.copy:
+        dest: /etc/apt/sources.list.d/cloudbees-client-controller.list
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          deb https://downloads.cloudbees.com/cloudbees-core/traditional/client-master/rolling/debian binary/
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install CloudBees Client Controller
+      ansible.builtin.apt:
+        name: cloudbees-core-cm
+        state: present
+
+    - name: Ensure CloudBees Client Controller service is enabled and started
+      ansible.builtin.service:
+        name: cloudbees-core-cm
+        state: started
+        enabled: true
+
+    - name: Check Client Controller service status
+      ansible.builtin.command: systemctl is-active cloudbees-core-cm
+      register: cm_status
+      changed_when: false
+
+    - name: Print Client Controller service status
+      ansible.builtin.debug:
+        var: cm_status.stdout
