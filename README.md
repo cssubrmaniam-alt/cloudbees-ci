@@ -250,34 +250,78 @@ Phase 1 is complete when:
 - Terraform destroy is intentionally separate and asks for confirmation.
 - Evidence scripts are read-only wherever possible.
 
-## Phase 2 — CloudBees CI Traditional VM, DNS Foundation, and Base Install
+## Phase 2 — CloudBees CI Traditional VM, DNS Foundation, Base Install, and OC/Controller Setup
 
-Phase 2 provisions the CloudBees CI Traditional lab VM, prepares the base operating system, captures evidence, and tracks DNS delegation required for a CloudBees-controlled service URL.
+Phase 2 provisions the CloudBees CI Traditional lab VM, prepares the base operating system, configures DNS, validates labels/tags, installs CloudBees CI Operations Center and Client Controller, and captures evidence.
 
-### Phase 2 current status
+### Phase 2 Current Status
 
 | Area | Status |
 |---|---|
 | GCP project | Completed |
 | Region policy alignment | Completed |
 | Traditional VM infrastructure | Completed |
+| Static public IP | Completed |
 | Firewall restriction | Completed |
+| Labels/tags standard | Completed |
 | Ansible base install | Completed |
 | VM base validation | Completed |
-| DNS child zone | Completed |
-| ps-dev parent NS delegation | Ticket created / pending Ops |
-| CloudBees CI Traditional install source | Pending |
-| Operations Center setup | Pending |
-| Controller attach | Pending |
+| GCP DNS child zone | Completed |
+| ps-dev parent NS delegation | Completed |
+| Traditional VM A record | Completed |
+| AWS Route53 hosted zone | Completed |
+| GCP-to-AWS NS delegation | Completed |
+| AWS ACM wildcard certificate | Completed |
+| Operations Center install | Completed |
+| Operations Center setup wizard | Completed |
+| Operations Center dashboard | Completed |
+| Client Controller install | Completed |
+| Client Controller dashboard | Completed |
+| External direct access to 8888/8080 | Blocked by external network path |
+| SSH tunnel access | Working |
+| Controller attach to Operations Center | Pending |
 | Linux agent setup | Pending |
 | Quickstart demo | Pending |
 
-### GCP project
-
-The Phase 2 lab project is:
+### GCP Project
 
 ```text
 cloudbees-ci-ps-lab
+
+```
+
+### Traditional VM
+
+```text
+VM name: cbci-traditional-dev
+Zone: us-east1-b
+Machine type: e2-standard-4
+OS: Debian GNU/Linux 12 (bookworm)
+CPU: 4 vCPU
+Memory: 15 GiB
+Disk: 99 GB
+Public IP: 34.75.138.203
+DNS: traditional.ssubramaniam.ps.beescloud.com
+```
+
+### DNS Foundation
+
+The detailed DNS foundation runbook is documented here:
+
+```text
+docs/runbooks/phase-2-dns-foundation.md
+```
+
+Completed DNS items:
+
+```text
+GCP child zone: ssubramaniam.ps.beescloud.com
+Parent delegation from ps-dev: completed by CloudBees Ops
+Traditional A record: traditional.ssubramaniam.ps.beescloud.com -> 34.75.138.203
+AWS delegated zone: aws.ssubramaniam.ps.beescloud.com
+ACM wildcard certificate: *.aws.ssubramaniam.ps.beescloud.com
+ACM status: ISSUED
+```
 
 ### CloudBees PS Labels and Tags Standard
 
@@ -285,6 +329,15 @@ Cloud resource labels/tags for PS onboarding labs are documented here:
 
 ```text
 docs/runbooks/cloudbees-ps-labels-and-tags-standard.md
+```
+
+Required labels/tags:
+
+```text
+cb-owner        = professional-services
+cb-user         = ssubramaniam
+cb-environment = development
+```
 
 ### Phase 2D Traditional Install Alignment
 
@@ -292,3 +345,62 @@ The CloudBees CI Traditional installation alignment runbook is documented here:
 
 ```text
 docs/runbooks/phase-2d-traditional-install-alignment.md
+```
+
+Completed install items:
+
+```text
+Operations Center package: cloudbees-core-oc
+Operations Center version: 2.555.2.36753
+Operations Center port: 8888
+Client Controller package: cloudbees-core-cm
+Client Controller version: 2.541.3.36065
+Client Controller port: 8080
+Java runtime: Temurin Java 21
+```
+
+### Access Method
+
+Direct external access to ports `8888` and `8080` timed out from the laptop even though the GCP firewall rule exists and the services are listening on the VM.
+
+Current working access method is SSH tunnel.
+
+Operations Center tunnel:
+
+```bash
+gcloud compute ssh cbci-traditional-dev \
+  --project cloudbees-ci-ps-lab \
+  --zone us-east1-b \
+  -- -L 8888:localhost:8888
+```
+
+Operations Center URL:
+
+```text
+http://localhost:8888
+```
+
+Client Controller tunnel:
+
+```bash
+gcloud compute ssh cbci-traditional-dev \
+  --project cloudbees-ci-ps-lab \
+  --zone us-east1-b \
+  -- -L 8080:localhost:8080
+```
+
+Client Controller URL:
+
+```text
+http://localhost:8080
+```
+
+### Remaining Phase 2 Work
+
+```text
+1. Attach/register Client Controller to Operations Center
+2. Configure Linux agent
+3. Run a sample Quickstart job
+4. Capture dashboard/screenshots/evidence
+5. Complete mentor/manager demo sign-off
+```
