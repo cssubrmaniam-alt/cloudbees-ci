@@ -1,0 +1,56 @@
+---
+- name: Install CloudBees CI Operations Center on Traditional VM
+  hosts: traditional
+  become: true
+
+  tasks:
+    - name: Install prerequisite packages
+      ansible.builtin.apt:
+        update_cache: true
+        name:
+          - wget
+          - ca-certificates
+          - gnupg
+          - apt-transport-https
+        state: present
+
+    - name: Add CloudBees apt repository key
+      ansible.builtin.get_url:
+        url: https://downloads.cloudbees.com/cloudbees-core/traditional/operations-center/rolling/debian/cloudbees.com.key
+        dest: /etc/apt/trusted.gpg.d/cloudbees.com.asc
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Add CloudBees Operations Center apt repository
+      ansible.builtin.copy:
+        dest: /etc/apt/sources.list.d/cloudbees-operations-center.list
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          deb https://downloads.cloudbees.com/cloudbees-core/traditional/operations-center/rolling/debian binary/
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install CloudBees Operations Center
+      ansible.builtin.apt:
+        name: cloudbees-core-oc
+        state: present
+
+    - name: Ensure CloudBees Operations Center service is enabled and started
+      ansible.builtin.service:
+        name: cloudbees-core-oc
+        state: started
+        enabled: true
+
+    - name: Check Operations Center service status
+      ansible.builtin.command: systemctl is-active cloudbees-core-oc
+      register: oc_status
+      changed_when: false
+
+    - name: Print Operations Center service status
+      ansible.builtin.debug:
+        var: oc_status.stdout

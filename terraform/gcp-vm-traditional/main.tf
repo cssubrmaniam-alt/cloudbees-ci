@@ -19,7 +19,7 @@ resource "google_compute_firewall" "allow_jenkins_lab" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22", "8080", "8443", "50000"]
+    ports    = ["22", "8080", "8443", "8888", "50000"]
   }
 
   source_ranges = var.allowed_source_ranges
