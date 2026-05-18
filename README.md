@@ -404,3 +404,22 @@ http://localhost:8080
 4. Capture dashboard/screenshots/evidence
 5. Complete mentor/manager demo sign-off
 ```
+
+### CloudBees CI PS Phase-Wise Playbook
+
+The full Phase 1 through Phase 6 onboarding playbook/runbook set is documented here:
+
+```text
+docs/runbooks/phase-wise/cloudbees-ci-ps-phase-wise-playbook.md
+```
+
+Phase-specific runbooks:
+
+```text
+docs/runbooks/phase-wise/phase-1-workstation-access-tools.md
+docs/runbooks/phase-wise/phase-2-traditional-ci.md
+docs/runbooks/phase-wise/phase-3-modern-gke.md
+docs/runbooks/phase-wise/phase-4-advanced-config.md
+docs/runbooks/phase-wise/phase-5-migration-topology.md
+docs/runbooks/phase-wise/phase-6-ps-scenarios.md
+```
