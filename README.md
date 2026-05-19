@@ -281,7 +281,7 @@ Phase 2 provisions the CloudBees CI Traditional lab VM, prepares the base operat
 | SSH tunnel access | Working |
 | Controller attach to Operations Center | Completed |
 | Linux agent setup | Pending |
-| Quickstart demo | Pending |
+| Quickstart demo | In progress — Freestyle and Pipeline validated |
 
 ### GCP Project
 

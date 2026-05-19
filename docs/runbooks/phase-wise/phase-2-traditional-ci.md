@@ -13,7 +13,7 @@ Provision and validate a CloudBees CI Traditional lab with Operations Center, Cl
 | Client Controller install/dashboard | Completed |
 | Client Controller attachment to OC | Completed |
 | Linux agent setup | Pending |
-| Quickstart demo | Pending |
+| Quickstart demo | In progress — Freestyle and Pipeline validated |
 | Mentor / manager sign-off | Pending |
 
 ## Lab Details
