@@ -325,3 +325,34 @@ Lab notes:
   - External HTTP endpoint concept reviewed using REST/API and remote trigger pattern.
   - Pipeline Policies and Pipeline Template Catalog may require additional plugin/configuration enablement depending on customer requirements.
 ```
+
+## Phase 2N Mentor Manager Demo Completion
+
+```text
+Status: Ready for review
+Demo scope:
+  - Operations Center dashboard
+  - Client Controller dashboard
+  - Controller relationship
+  - Linux agent
+  - Quickstart jobs
+  - Beekeeper / Assurance
+  - Advisor
+  - RBAC
+  - Authentication integration review
+  - Backup validation
+  - CasC concept
+  - Advanced Quickstart features
+
+Operations Center:
+  - http://localhost:18888
+
+Client Controller:
+  - http://localhost:18080
+
+Access method:
+  - SSH tunnel
+
+Known issue:
+  - Direct external access to 8888/8080 times out from laptop; SSH tunnel used.
+```
