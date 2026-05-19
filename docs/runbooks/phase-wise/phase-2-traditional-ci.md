@@ -175,3 +175,29 @@ http://localhost:18080
 
 Access method:
 SSH tunnel
+
+## Phase 2I Basic RBAC Completion
+
+```text
+Status: Completed
+Validated:
+  - Basic RBAC role model
+  - Local lab users
+  - Folder/job access behavior
+
+Roles:
+  - admin-role
+  - developer-role
+  - viewer-role
+
+Sample folder:
+team-a
+
+Sample job:
+team-a-rbac-smoke-test
+
+Client Controller:
+http://localhost:18080
+
+Access method:
+SSH tunnel
