@@ -294,3 +294,34 @@ Access method:
 Important note:
   - Sample CasC files are documentation/example only and were not applied to the running lab.
 ```
+
+## Phase 2M Advanced Quickstart Features Completion
+
+```text
+Status: Completed
+Reviewed:
+  - Pipeline Policies
+  - Cross Team Collaboration
+  - External HTTP Endpoints
+  - Pipeline Template Catalog
+
+Validation approach:
+  - UI review in Operations Center and Client Controller
+  - Plugin/feature visibility review
+  - REST/API endpoint behavior reviewed
+  - Advanced/customer-specific features documented where not enabled
+
+Operations Center:
+  - http://localhost:18888
+
+Client Controller:
+  - http://localhost:18080
+
+Access method:
+  - SSH tunnel
+
+Lab notes:
+  - Cross-team collaboration reviewed using folder/RBAC/shared-library model.
+  - External HTTP endpoint concept reviewed using REST/API and remote trigger pattern.
+  - Pipeline Policies and Pipeline Template Catalog may require additional plugin/configuration enablement depending on customer requirements.
+```
