@@ -12,7 +12,7 @@ Provision and validate a CloudBees CI Traditional lab with Operations Center, Cl
 | Operations Center install/dashboard | Completed |
 | Client Controller install/dashboard | Completed |
 | Client Controller attachment to OC | Completed |
-| Linux agent setup | Pending |
+| Linux agent setup | Completed |
 | Quickstart demo | In progress — Freestyle and Pipeline validated |
 | Mentor / manager sign-off | Pending |
 
@@ -124,3 +124,15 @@ Job Count: 0
 Queue Size: 0
 Access method: SSH tunnel
 ```
+
+## Phase 2F Quickstart Completion
+
+```text
+Status: Completed
+Agent: linux-agent-01
+Agent label: traditional-linux
+Validated jobs:
+  - Freestyle smoke test
+  - Pipeline smoke test
+  - Multibranch Pipeline smoke test
+Access method: SSH tunnel

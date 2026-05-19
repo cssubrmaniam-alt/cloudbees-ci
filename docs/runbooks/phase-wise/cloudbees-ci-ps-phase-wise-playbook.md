@@ -9,7 +9,7 @@ The goal is to prove that the consultant can design, install, configure, trouble
 | Phase | Status |
 |---|---|
 | Phase 1 | Completed |
-| Phase 2 | In progress — Linux agent setup is next |
+| Phase 2 | In progress — Beekeeper and Assurance review is next |
 | Phase 3 | Not started |
 | Phase 4 | Not started |
 | Phase 5 | Not started |

@@ -280,7 +280,7 @@ Phase 2 provisions the CloudBees CI Traditional lab VM, prepares the base operat
 | External direct access to 8888/8080 | Blocked by external network path |
 | SSH tunnel access | Working |
 | Controller attach to Operations Center | Completed |
-| Linux agent setup | Pending |
+| Linux agent setup | Completed |
 | Quickstart demo | In progress — Freestyle and Pipeline validated |
 
 ### GCP Project
