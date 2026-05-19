@@ -87,7 +87,7 @@ Pending. Create a Linux agent with label `traditional-linux`, validate online st
 Pending. Demonstrate Freestyle, Pipeline, Multibranch Pipeline, and Organization Folder.
 
 ## Phase 2G — Beekeeper / CloudBees Assurance
-Pending. Review Beekeeper, update status, plugin warnings, recommended actions.
+Completed. Review Beekeeper, update status, plugin warnings, recommended actions.
 
 ## Phase 2H — CloudBees Advisor
 Pending. Review Advisor plugin/configuration and capture support/advisor evidence.
@@ -136,3 +136,23 @@ Validated jobs:
   - Pipeline smoke test
   - Multibranch Pipeline smoke test
 Access method: SSH tunnel
+
+## Phase 2G Beekeeper Assurance Completion
+
+```text
+Status: Completed
+Reviewed:
+  - CloudBees Assurance Program / Beekeeper
+  - Plugin Manager
+  - Update center status
+  - Plugin warnings
+  - Administrative monitors
+
+Operations Center:
+http://localhost:18888
+
+Client Controller:
+http://localhost:18080
+
+Access method:
+SSH tunnel
