@@ -9,4 +9,4 @@ releases:
     chart: {{ requiredEnv "CLOUDBEES_HELM_CHART" }}
     {{ if env "CLOUDBEES_VERSION" }}version: {{ env "CLOUDBEES_VERSION" }}{{ end }}
     values:
-      - values/cloudbees-modern-values.yaml
+      - values/cloudbees-modern-values.yaml.gotmpl
