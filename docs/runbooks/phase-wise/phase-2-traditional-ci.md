@@ -11,7 +11,7 @@ Provision and validate a CloudBees CI Traditional lab with Operations Center, Cl
 | Ansible base install | Completed |
 | Operations Center install/dashboard | Completed |
 | Client Controller install/dashboard | Completed |
-| Client Controller attachment to OC | In progress |
+| Client Controller attachment to OC | Completed |
 | Linux agent setup | Pending |
 | Quickstart demo | Pending |
 | Mentor / manager sign-off | Pending |
@@ -69,7 +69,7 @@ dpkg -l | egrep "cloudbees-core-(oc|cm)" || true
 '
 ```
 
-## Active Task — Attach Client Controller to OC
+## Completed Task — Attach Client Controller to OC
 1. Keep both tunnels open.
 2. In OC, open `client-controller-01 -> Manage`.
 3. Copy full connection details.
@@ -112,3 +112,15 @@ Pending. Show OC, connected controller, Linux agent, sample job, Beekeeper, Advi
 
 ## Exit Criteria
 OC installed and accessible, Client Controller attached and online, Linux agent online, sample job executed, Quickstart features reviewed, evidence captured, mentor/manager demo completed.
+
+## Phase 2D Controller Attach Completion
+
+```text
+Status: Completed
+Controller item: client-controller-01
+Operations Center version: 2.555.2.36753
+Client Controller version: 2.555.2.36753
+Job Count: 0
+Queue Size: 0
+Access method: SSH tunnel
+```

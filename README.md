@@ -279,7 +279,7 @@ Phase 2 provisions the CloudBees CI Traditional lab VM, prepares the base operat
 | Client Controller dashboard | Completed |
 | External direct access to 8888/8080 | Blocked by external network path |
 | SSH tunnel access | Working |
-| Controller attach to Operations Center | Pending |
+| Controller attach to Operations Center | Completed |
 | Linux agent setup | Pending |
 | Quickstart demo | Pending |
 
@@ -354,7 +354,7 @@ Operations Center package: cloudbees-core-oc
 Operations Center version: 2.555.2.36753
 Operations Center port: 8888
 Client Controller package: cloudbees-core-cm
-Client Controller version: 2.541.3.36065
+Client Controller version: 2.555.2.36753
 Client Controller port: 8080
 Java runtime: Temurin Java 21
 ```
