@@ -156,3 +156,22 @@ http://localhost:18080
 
 Access method:
 SSH tunnel
+
+## Phase 2H CloudBees Advisor Completion
+
+```text
+Status: Completed
+Reviewed:
+  - CloudBees Advisor / support readiness
+  - Support bundle availability
+  - Advisor/support-related administrative monitors
+  - Relevant OC and Client Controller logs
+
+Operations Center:
+http://localhost:18888
+
+Client Controller:
+http://localhost:18080
+
+Access method:
+SSH tunnel
