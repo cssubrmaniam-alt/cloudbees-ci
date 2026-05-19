@@ -1,0 +1,9 @@
+jenkins:
+  systemMessage: "Phase 2L CloudBees CI Traditional CasC concept example"
+  numExecutors: 0
+  mode: NORMAL
+
+unclassified:
+  location:
+    url: "http://10.20.0.2:8080/"
+    adminAddress: "c_ssubrmaniam@cloudbees.com"

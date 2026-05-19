@@ -263,3 +263,34 @@ Client Controller:
 Access method:
   - SSH tunnel
 ```
+
+## Phase 2L CasC Concept Completion
+
+```text
+Status: Completed
+Reviewed:
+  - Configuration as Code concept
+  - Operations Center CasC / bundle visibility
+  - Client Controller CasC visibility
+  - Sample Traditional CasC bundle structure
+
+Sample repo path:
+  - docs/runbooks/phase-wise/examples/phase2l-casc-traditional/
+
+Sample files:
+  - client-controller-01/bundle.yaml
+  - client-controller-01/plugins.yaml
+  - client-controller-01/jenkins.yaml
+
+Operations Center:
+  - http://localhost:18888
+
+Client Controller:
+  - http://localhost:18080
+
+Access method:
+  - SSH tunnel
+
+Important note:
+  - Sample CasC files are documentation/example only and were not applied to the running lab.
+```

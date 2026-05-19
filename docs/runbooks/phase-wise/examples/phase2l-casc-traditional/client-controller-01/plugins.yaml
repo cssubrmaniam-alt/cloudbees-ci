@@ -1,0 +1,6 @@
+plugins:
+  - id: configuration-as-code
+  - id: workflow-aggregator
+  - id: git
+  - id: credentials
+  - id: ssh-slaves
