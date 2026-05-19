@@ -230,3 +230,36 @@ http://localhost:18080
 
 Access method:
 SSH tunnel
+
+## Phase 2K Backup Validation Completion
+
+```text
+Status: Completed
+Reviewed:
+  - Operations Center home directory
+  - Client Controller home directory
+  - Service status
+  - Package versions
+  - Backup inventory manifest
+  - Lab-only backup archive approach
+  - Restore considerations
+
+Home directories:
+  - /var/lib/cloudbees-core-oc
+  - /var/lib/cloudbees-core-cm
+
+Lab backup inventory location on VM:
+  - /tmp/cloudbees-phase2k-backup-validation/backup-inventory.txt
+
+Important note:
+  - Backup archives may contain secrets and must not be committed to Git.
+
+Operations Center:
+  - http://localhost:18888
+
+Client Controller:
+  - http://localhost:18080
+
+Access method:
+  - SSH tunnel
+```
