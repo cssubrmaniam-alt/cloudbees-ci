@@ -395,16 +395,6 @@ Client Controller URL:
 http://localhost:8080
 ```
 
-### Remaining Phase 2 Work
-
-```text
-1. Attach/register Client Controller to Operations Center
-2. Configure Linux agent
-3. Run a sample Quickstart job
-4. Capture dashboard/screenshots/evidence
-5. Complete mentor/manager demo sign-off
-```
-
 ### CloudBees CI PS Phase-Wise Playbook
 
 The full Phase 1 through Phase 6 onboarding playbook/runbook set is documented here:
