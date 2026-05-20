@@ -439,6 +439,7 @@ docs/runbooks/phase-wise/phase-6-ps-scenarios.md
 | Phase 2H | CloudBees Advisor review | Completed |
 | Phase 2I | Basic RBAC validation | Completed |
 | Phase 2J | Authentication integration review | Completed |
+| Enterprise authentication integration | Reviewed / documented, not integrated |
 | Phase 2K | Backup validation | Completed |
 | Phase 2L | CasC concept for Traditional | Completed |
 | Phase 2M | Advanced Quickstart features | Completed |

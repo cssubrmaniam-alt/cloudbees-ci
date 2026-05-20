@@ -356,3 +356,49 @@ Access method:
 Known issue:
   - Direct external access to 8888/8080 times out from laptop; SSH tunnel used.
 ```
+
+## Phase 2J Enterprise Authentication Integration Review
+
+```text
+Status: Reviewed / documented, not integrated
+
+Current lab authentication:
+  - Local Jenkins / CloudBees user database
+
+Basic RBAC validation:
+  - Completed using local lab users and folder/job permissions
+
+Enterprise authentication options reviewed:
+  - LDAP / Active Directory
+  - SAML SSO
+  - OIDC / OAuth
+  - Group-based RBAC mapping
+
+Reason integration was not performed:
+  - No real IdP details were provided for this onboarding lab
+  - LDAP/AD requires LDAP URL, bind DN, search base, group base, and test users
+  - SAML requires IdP metadata, SP entity ID, ACS URL, certificate, users, and groups
+  - OIDC requires issuer URL, client ID, client secret, scopes, redirect URI, and claims
+  - Group-based RBAC requires real IdP group names and claim/attribute mapping
+
+Recommended customer pattern:
+  - Use enterprise IdP for authentication
+  - Map IdP groups to CloudBees RBAC roles
+  - Avoid large-scale local user management
+
+Example group-to-role mapping:
+  - cloudbees-admins -> admin-role
+  - cloudbees-developers -> developer-role
+  - cloudbees-viewers -> viewer-role
+  - team-a-developers -> developer-role on team-a folder
+  - team-a-viewers -> viewer-role on team-a folder
+
+Operations Center:
+  - http://localhost:18888
+
+Client Controller:
+  - http://localhost:18080
+
+Access method:
+  - SSH tunnel
+```
